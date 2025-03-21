@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Photo Album</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+			font-family: Arial, sans-serif;
+        }
+		
+		.album {
+			width: 100%;
+		}
+		
+		.photo {
+		    margin: 0; /* Elimina el margen entre los contenedores */
+			position: relative; /* Necesario para posicionar el titulo sobre la imagen */
+		}
+		
+		.photo img {
+			width: 100%;
+			display: block;
+		}
+		
+		.container {
+			height: 100vh; /* Ocupa toda la altura de la pantalla */
+			display: flex;
+			flex-direction: column; /* Los elementos se apilan verticalmente */
+			background-image: url("principal.png");
+	  		background-size: cover; /* La imagen cubre todo el div */
+	  		background-position: center; /* Centra la imagen */
+	  		background-repeat: no-repeat; /* Evita que la imagen se repita */
+			flex-direction: column; /* Apila los elementos verticalmente */
+			align-items: center; /* Centrado vertical */
+			display: flex;
+			justify-content: center; /* Centrado horizontal */
+			text-align: center;
+			
+		}
+		
+		.container div {
+			margin-bottom: 30px; /* Espacio entre los elementos */
+            text-shadow: 0 0px 15px rgba(0, 0, 0, 0.4);
+	  		background: linear-gradient(to right, #ff0000, #ff0000); /* Degradado */
+	  		-webkit-background-clip: text;
+	  		color: transparent;
+	  		background-clip: text;
+		}
+		
+		.a {
+			font-size: 65px;
+	  		
+		}
+		
+		
+		/*titulos*/
+		.photo-name {
+		    position: absolute; /* Posición relativa a su contenedor padre */
+			width: 100%;
+			height: 100%;
+			top: 0%;
+		    left: 50%; /* Centra horizontalmente */
+		    transform: translateX(-50%); /* Asegura el centrado completo */
+			font-size: 38px;
+		    background: rgba(255, 255, 255, 0.5); /* Fondo semi-transparente */
+		    color: red; /* Texto blanco */
+		    padding: 10px; /* Espaciado alrededor del texto */
+		    opacity: 0; /* Inicialmente oculto */
+		    transition: opacity 0.3s ease; /* Animación para que aparezca suavemente */
+			text-shadow: 0 0px 15px rgba(0, 0, 0, 0.4);
+			text-align: center; 
+			justify-content: center; /* Centrar horizontalmente */
+			align-items: center; /* Centrar verticalmente */
+			display: flex; 
+		}
+
+		.photo:hover .photo-name {
+		    opacity: 1; /* Muestra el texto al pasar el cursor */
+
+		    animation: hideText 2s forwards; /* Activa la animación al pasar el cursor */
+		}
+		
+		@keyframes hideText {
+		    0% {
+		        opacity: 1;
+		    }
+			70% {
+			    opacity: 1; /* Mantén visible por el 70% del tiempo */
+			    }
+		    100% {
+		        opacity: 0;
+		    }
+		}
+    </style>
+</head>
+<body>
+	
+	<div class="container">
+	    <div class="a">Family Photo Album Web</div>
+	</div>
+	
+	<div class="album">
+		<div class="photo">
+			<img src="Juan,+Francisco,+Laura+&+Alfonso-703.jpg">
+        	<div class="photo-name">Felicidad</div>
+		</div>
+		<div class="photo">
+			<img src="Juan,+Francisco,+Laura+&+Alfonso-1058.jpg">
+        	<div class="photo-name">Mar</div>
+		</div>
+		<div class="photo">
+			<img src="Juan,+Francisco,+Laura+&+Alfonso-221.jpg">
+        	<div class="photo-name">Sonrisa</div>
+		</div>
+		<div class="photo">
+			<img src="Juan,+Francisco,+Laura+&+Alfonso-914.jpg">
+        	<div class="photo-name">Juego</div>
+		</div>
+		<div class="photo">
+			<img src="Juan,+Francisco,+Laura+&+Alfonso-1187.jpg">
+        	<div class="photo-name">Grito</div>
+		</div>
+		<div class="photo">
+			<img src="Juan,+Francisco,+Laura+&+Alfonso-831.jpg">
+        	<div class="photo-name">Sonrisa</div>
+		</div>
+		<div class="photo">
+			<img src="Juan,+Francisco,+Laura+&+Alfonso-168.jpg">
+        	<div class="photo-name">Abrazo</div>
+		</div>
+	</div>
+	
+    <!-- JavaScript para desplazamiento y ocultar el botón -->
+    <script>
+        const btnBajar = document.getElementById('btnBajar');
+
+        // Función para desplazar hacia abajo
+        function scrollToBottom() {
+            document.getElementById("final").scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Detectar el desplazamiento de la página
+        window.addEventListener('scroll', () => {
+            // Si el usuario se ha desplazado hacia abajo, ocultar el botón
+            if (window.scrollY > 100) {  // Cambia 100 según la altura a la que quieres que desaparezca
+                btnBajar.classList.add('oculto');
+            } else {
+                btnBajar.classList.remove('oculto');
+            }
+        });
+    </script>
+</body>
+</html>
